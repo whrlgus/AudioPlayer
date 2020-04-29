@@ -15,6 +15,8 @@
 		4CF65C16245983A400E5EE8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF65C14245983A400E5EE8D /* LaunchScreen.storyboard */; };
 		4CF65C1E2459873400E5EE8D /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */; };
 		4CF65C202459897E00E5EE8D /* AudioPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */; };
+		4CF65C222459B22000E5EE8D /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C212459B22000E5EE8D /* WaveformView.swift */; };
+		4CF65C242459B29200E5EE8D /* ProgressbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C232459B29200E5EE8D /* ProgressbarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4CF65C17245983A400E5EE8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPickerController.swift; sourceTree = "<group>"; };
+		4CF65C212459B22000E5EE8D /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		4CF65C232459B29200E5EE8D /* ProgressbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				4CF65C11245983A400E5EE8D /* Preview Content */,
 				4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */,
 				4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */,
+				4CF65C212459B22000E5EE8D /* WaveformView.swift */,
+				4CF65C232459B29200E5EE8D /* ProgressbarView.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -155,8 +161,10 @@
 				4CF65C202459897E00E5EE8D /* AudioPickerController.swift in Sources */,
 				4CF65C07245983A100E5EE8D /* AppDelegate.swift in Sources */,
 				4CF65C0C245983A200E5EE8D /* AudioPlayer.xcdatamodeld in Sources */,
+				4CF65C242459B29200E5EE8D /* ProgressbarView.swift in Sources */,
 				4CF65C09245983A100E5EE8D /* SceneDelegate.swift in Sources */,
 				4CF65C1E2459873400E5EE8D /* AudioPlayerView.swift in Sources */,
+				4CF65C222459B22000E5EE8D /* WaveformView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

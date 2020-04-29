@@ -14,45 +14,59 @@ protocol AudioPlayerDelegate {
 }
 
 struct AudioPlayerView: View, AudioPlayerDelegate {
-	let player: AVPlayer=AVPlayer()
+	let player: AVPlayer = AVPlayer()
+	var audioSamples: [Float] = []
 	@State var playerPaused = true
 	
 	@State var fileName: String = String()
 	
-    @State var showingPicker = false
-
+	@State var showingPicker = false
+	
 	func loadAudio(url: URL){
 		fileName=url.lastPathComponent
 		player.replaceCurrentItem(with: AVPlayerItem(url: url))
 	}
 	
 	var body: some View {
-		VStack{
-			Button(action: {
-				self.showingPicker.toggle()
-			}){
-				Text("select file")
+		GeometryReader { geometry in
+			VStack(spacing: 0){
+				HStack{
+					Text("\(self.fileName)")
+					Spacer()
+					Button(action: {
+						self.showingPicker.toggle()
+					}){
+						Image(systemName: "music.note.list").font(.system(size: 30))
+					}
+				}.padding().frame(height: geometry.size.height*0.1)
+				Rectangle().frame(height: geometry.size.height*0.5)
+				VStack{
+					ProgressbarView(audioSamples: self.audioSamples,
+									viewWidth: geometry.size.width,
+									viewHeight: geometry.size.height*0.1)
+					Spacer()
+					Button(action: {
+						if self.player.currentItem == nil{
+							print("no audio")
+							return
+						}
+						if self.playerPaused {
+							print("play")
+							self.player.play()
+						}
+						else {
+							print("pause")
+							self.player.pause()
+						}
+						self.playerPaused.toggle()
+					}) {
+						Image(systemName: self.playerPaused ? "play.circle" : "pause.circle").font(.system(size: 100))
+					}
+					Spacer()
+				}.frame(height: geometry.size.height*0.4)
 			}
-			Text("\(fileName)")
-			Button(action: {
-				if self.player.currentItem == nil{
-					print("no audio")
-					return
-				}
-				if self.playerPaused {
-					print("play")
-					self.player.play()
-				}
-				else {
-					print("pause")
-					self.player.pause()
-				}
-				self.playerPaused.toggle()
-			}) {
-				Image(systemName: playerPaused ? "play" : "pause")
-			}
-			
-		}.sheet(isPresented: $showingPicker) {
+		}
+		.sheet(isPresented: self.$showingPicker) {
 			AudioPickerController(delegate: self)
 		}
 	}
