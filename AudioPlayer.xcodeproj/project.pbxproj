@@ -10,10 +10,11 @@
 		4CF65C07245983A100E5EE8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C06245983A100E5EE8D /* AppDelegate.swift */; };
 		4CF65C09245983A100E5EE8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C08245983A100E5EE8D /* SceneDelegate.swift */; };
 		4CF65C0C245983A200E5EE8D /* AudioPlayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C0A245983A200E5EE8D /* AudioPlayer.xcdatamodeld */; };
-		4CF65C0E245983A200E5EE8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C0D245983A200E5EE8D /* ContentView.swift */; };
 		4CF65C10245983A400E5EE8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF65C0F245983A400E5EE8D /* Assets.xcassets */; };
 		4CF65C13245983A400E5EE8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF65C12245983A400E5EE8D /* Preview Assets.xcassets */; };
 		4CF65C16245983A400E5EE8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF65C14245983A400E5EE8D /* LaunchScreen.storyboard */; };
+		4CF65C1E2459873400E5EE8D /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */; };
+		4CF65C202459897E00E5EE8D /* AudioPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +22,12 @@
 		4CF65C06245983A100E5EE8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF65C08245983A100E5EE8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4CF65C0B245983A200E5EE8D /* AudioPlayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioPlayer.xcdatamodel; sourceTree = "<group>"; };
-		4CF65C0D245983A200E5EE8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4CF65C0F245983A400E5EE8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CF65C12245983A400E5EE8D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4CF65C15245983A400E5EE8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF65C17245983A400E5EE8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
+		4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPickerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +62,13 @@
 			children = (
 				4CF65C06245983A100E5EE8D /* AppDelegate.swift */,
 				4CF65C08245983A100E5EE8D /* SceneDelegate.swift */,
-				4CF65C0D245983A200E5EE8D /* ContentView.swift */,
 				4CF65C0F245983A400E5EE8D /* Assets.xcassets */,
 				4CF65C14245983A400E5EE8D /* LaunchScreen.storyboard */,
 				4CF65C17245983A400E5EE8D /* Info.plist */,
 				4CF65C0A245983A200E5EE8D /* AudioPlayer.xcdatamodeld */,
 				4CF65C11245983A400E5EE8D /* Preview Content */,
+				4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */,
+				4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -149,10 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF65C202459897E00E5EE8D /* AudioPickerController.swift in Sources */,
 				4CF65C07245983A100E5EE8D /* AppDelegate.swift in Sources */,
 				4CF65C0C245983A200E5EE8D /* AudioPlayer.xcdatamodeld in Sources */,
-				4CF65C0E245983A200E5EE8D /* ContentView.swift in Sources */,
 				4CF65C09245983A100E5EE8D /* SceneDelegate.swift in Sources */,
+				4CF65C1E2459873400E5EE8D /* AudioPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
