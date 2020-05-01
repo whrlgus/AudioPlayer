@@ -15,7 +15,7 @@ protocol AudioPlayerDelegate {
 
 struct AudioPlayerView: View, AudioPlayerDelegate {
 	let player: AVPlayer = AVPlayer()
-	var audioSamples: [Float] = []
+	@State var audioSamples: [Float] = []
 	@State var playerPaused = true
 	
 	@State var fileName: String = String()
@@ -25,6 +25,10 @@ struct AudioPlayerView: View, AudioPlayerDelegate {
 	func loadAudio(url: URL){
 		fileName=url.lastPathComponent
 		player.replaceCurrentItem(with: AVPlayerItem(url: url))
+		
+		DispatchQueue.global(qos: .background).async {
+			self.audioSamples=readAudio(audioURL: url, forChannel: 0)
+		}
 	}
 	
 	var body: some View {
@@ -41,7 +45,8 @@ struct AudioPlayerView: View, AudioPlayerDelegate {
 				}.padding().frame(height: geometry.size.height*0.1)
 				Rectangle().frame(height: geometry.size.height*0.5)
 				VStack{
-					ProgressbarView(audioSamples: self.audioSamples,
+					ProgressbarView(player: self.player,
+									audioSamples: self.audioSamples,
 									viewWidth: geometry.size.width,
 									viewHeight: geometry.size.height*0.1)
 					Spacer()
