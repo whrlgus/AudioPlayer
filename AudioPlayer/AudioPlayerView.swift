@@ -9,25 +9,38 @@
 import SwiftUI
 import AVFoundation
 
-protocol AudioPlayerDelegate {
-	func loadAudio(url: URL)
-}
 
-struct AudioPlayerView: View, AudioPlayerDelegate {
+struct AudioPlayerView: View, AudioPickerViewDelegate {
 	let player: AVPlayer = AVPlayer()
 	@State var audioSamples: [Float] = []
-	@State var playerPaused = true
+	@State var isPlaying = false
 	
 	@State var fileName: String = String()
+	@State var timeObservation: Any?
 	
 	@State var showingPicker = false
+	@State var duration: TimeInterval = 1
+	@State var currentTime: TimeInterval = 0
 	
 	func loadAudio(url: URL){
 		fileName=url.lastPathComponent
 		player.replaceCurrentItem(with: AVPlayerItem(url: url))
-		
+		duration=CMTimeGetSeconds((player.currentItem?.asset.duration)!)
 		DispatchQueue.global(qos: .background).async {
 			self.audioSamples=readAudio(audioURL: url, forChannel: 0)
+		}
+	}
+	
+	func playAudio(){
+		print("play")
+		self.player.play()
+		self.timeObservation = self.player.addPeriodicTimeObserver(
+			forInterval: CMTime(seconds: 0.01, preferredTimescale: 600),
+			queue: nil) {
+				time in
+				guard self.isPlaying else { return }
+				self.currentTime = time.seconds / self.duration
+				print("\(self.currentTime)")
 		}
 	}
 	
@@ -48,31 +61,32 @@ struct AudioPlayerView: View, AudioPlayerDelegate {
 					ProgressbarView(player: self.player,
 									audioSamples: self.audioSamples,
 									viewWidth: geometry.size.width,
-									viewHeight: geometry.size.height*0.1)
+									viewHeight: geometry.size.height*0.1,
+									currentTime: self.$currentTime,
+									isPlaying: self.$isPlaying)
 					Spacer()
 					Button(action: {
 						if self.player.currentItem == nil{
 							print("no audio")
 							return
 						}
-						if self.playerPaused {
-							print("play")
-							self.player.play()
-						}
-						else {
+						if self.isPlaying {
 							print("pause")
 							self.player.pause()
 						}
-						self.playerPaused.toggle()
+						else {
+							self.playAudio()
+						}
+						self.isPlaying.toggle()
 					}) {
-						Image(systemName: self.playerPaused ? "play.circle" : "pause.circle").font(.system(size: 100))
+						Image(systemName: !self.isPlaying ? "play.circle" : "pause.circle").font(.system(size: 100))
 					}
 					Spacer()
 				}.frame(height: geometry.size.height*0.4)
 			}
 		}
 		.sheet(isPresented: self.$showingPicker) {
-			AudioPickerController(delegate: self)
+			AudioPickerView(delegate: self)
 		}
 	}
 }

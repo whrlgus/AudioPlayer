@@ -14,7 +14,7 @@
 		4CF65C13245983A400E5EE8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF65C12245983A400E5EE8D /* Preview Assets.xcassets */; };
 		4CF65C16245983A400E5EE8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF65C14245983A400E5EE8D /* LaunchScreen.storyboard */; };
 		4CF65C1E2459873400E5EE8D /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */; };
-		4CF65C202459897E00E5EE8D /* AudioPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */; };
+		4CF65C202459897E00E5EE8D /* AudioPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C1F2459897E00E5EE8D /* AudioPickerView.swift */; };
 		4CF65C222459B22000E5EE8D /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C212459B22000E5EE8D /* WaveformView.swift */; };
 		4CF65C242459B29200E5EE8D /* ProgressbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C232459B29200E5EE8D /* ProgressbarView.swift */; };
 		4CF65C28245C6BCA00E5EE8D /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C27245C6BCA00E5EE8D /* Utility.swift */; };
@@ -30,7 +30,7 @@
 		4CF65C15245983A400E5EE8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF65C17245983A400E5EE8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
-		4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPickerController.swift; sourceTree = "<group>"; };
+		4CF65C1F2459897E00E5EE8D /* AudioPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPickerView.swift; sourceTree = "<group>"; };
 		4CF65C212459B22000E5EE8D /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 		4CF65C232459B29200E5EE8D /* ProgressbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressbarView.swift; sourceTree = "<group>"; };
 		4CF65C27245C6BCA00E5EE8D /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 				4CF65C0A245983A200E5EE8D /* AudioPlayer.xcdatamodeld */,
 				4CF65C11245983A400E5EE8D /* Preview Content */,
 				4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */,
-				4CF65C1F2459897E00E5EE8D /* AudioPickerController.swift */,
+				4CF65C1F2459897E00E5EE8D /* AudioPickerView.swift */,
 				4CF65C212459B22000E5EE8D /* WaveformView.swift */,
 				4CF65C232459B29200E5EE8D /* ProgressbarView.swift */,
 				4CF65C27245C6BCA00E5EE8D /* Utility.swift */,
@@ -161,7 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF65C202459897E00E5EE8D /* AudioPickerController.swift in Sources */,
+				4CF65C202459897E00E5EE8D /* AudioPickerView.swift in Sources */,
 				4CF65C07245983A100E5EE8D /* AppDelegate.swift in Sources */,
 				4CF65C0C245983A200E5EE8D /* AudioPlayer.xcdatamodeld in Sources */,
 				4CF65C242459B29200E5EE8D /* ProgressbarView.swift in Sources */,

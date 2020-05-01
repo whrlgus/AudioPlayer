@@ -10,7 +10,11 @@ import Foundation
 import SwiftUI
 import MobileCoreServices
 
-struct AudioPickerController: UIViewControllerRepresentable {
+protocol AudioPickerViewDelegate {
+	func loadAudio(url: URL)
+}
+
+struct AudioPickerView: UIViewControllerRepresentable {
 	var delegate: AudioPlayerView
 	
 	
@@ -18,7 +22,7 @@ struct AudioPickerController: UIViewControllerRepresentable {
 		Coordinator(self)
 	}
 	
-	func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<AudioPickerController>) {
+	func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<AudioPickerView>) {
 	}
 	
 	func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
@@ -28,9 +32,9 @@ struct AudioPickerController: UIViewControllerRepresentable {
 	}
 	
 	class Coordinator: NSObject, UINavigationControllerDelegate, UIDocumentPickerDelegate {
-		var parent: AudioPickerController
+		var parent: AudioPickerView
 		
-		init(_ parent: AudioPickerController) {
+		init(_ parent: AudioPickerView) {
 			self.parent = parent
 		}
 		

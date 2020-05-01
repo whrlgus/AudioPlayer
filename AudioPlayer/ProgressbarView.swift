@@ -15,24 +15,37 @@ struct ProgressbarView: View {
 	let viewWidth: CGFloat
 	let viewHeight: CGFloat
 	
-	@State var duration: TimeInterval = 1
-	@State var currentTime: TimeInterval = 0
 	
-	init(player: AVPlayer, audioSamples: [Float], viewWidth: CGFloat, viewHeight: CGFloat) {
+	@State var duration: TimeInterval = 1
+	@Binding var currentTime: TimeInterval
+
+	@Binding var isPlaying: Bool
+	
+	@State var dragLocation = CGPoint.zero
+	
+	init(player: AVPlayer, audioSamples: [Float], viewWidth: CGFloat, viewHeight: CGFloat, currentTime: Binding<TimeInterval>, isPlaying: Binding<Bool>) {
 		self.player = player
 		self.audioSamples = audioSamples
 		self.viewWidth = viewWidth
 		self.viewHeight = viewHeight
+		self._currentTime = currentTime
+		self._isPlaying = isPlaying
 	}
 	
-	func observeTime(){
-		player.addPeriodicTimeObserver(
-			forInterval: CMTime(seconds: 0.01, preferredTimescale: 600),
-			queue: nil) {
-				time in
-				self.currentTime = time.seconds
-		}
-	}
+	
+//	func foo(value: DragGesture.Value, min:CGFloat, max:CGFloat){
+//		print("\(value.location.x)")
+//		self.currentTime=TimeInterval(value.location.x)
+//
+//		if(self.currentTime < min){
+//			self.currentTime=TimeInterval(min)
+//		}
+//		if(self.currentTime > max){
+//			self.currentTime=TimeInterval(max)
+//		}
+//
+//
+//	}
 	
     var body: some View {
 		
@@ -40,21 +53,19 @@ struct ProgressbarView: View {
 				WaveformView(audioSamples: audioSamples,
 							 viewWidth: viewWidth,
 							 viewHeight: viewHeight)
+				
+//				.gesture(
+//					DragGesture(minimumDistance: 0).onChanged({ value in
+//						self.foo(value: value, min: 0, max: self.viewWidth)
+//					}).onEnded({ value in
+//						self.foo(value: value, min: 0, max: self.viewWidth)
+//					})
+//				)
+				
 				Rectangle()
-					.foregroundColor(.red)
+					.fill(Color.red)
 					.frame(width: 5)
 					.position(x: CGFloat(self.currentTime)/CGFloat(self.duration)*viewWidth, y: viewHeight/2)
 			}.frame(width: viewWidth, height: viewHeight)
-		
-		
-    }
-}
-
-struct ProgressbarView_Previews: PreviewProvider {
-    static var previews: some View {
-		ProgressbarView(player: AVPlayer(),
-						audioSamples: [0.1,0.3,0.4,0.2,0.5,1,0.5,0.9],
-						viewWidth: 200,
-						viewHeight: 200)
     }
 }
