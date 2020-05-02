@@ -14,8 +14,8 @@
             filePath = "AudioPlayer/ProgressbarView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -64,23 +64,23 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-            landmarkName = "readAudio(audioURL:forChannel:)"
-            landmarkType = "9">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6AC858A8-1932-4426-9D23-70AB8E7A3953"
+            uuid = "BFE4902B-9AD2-456E-A40F-7F725C699096"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AudioPlayer/AudioPlayerView.swift"
+            filePath = "AudioPlayer/AudioPlayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "playAudio()"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "readAudio(audioURL:forChannel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

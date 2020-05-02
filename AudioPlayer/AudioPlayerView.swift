@@ -9,46 +9,29 @@
 import SwiftUI
 import AVFoundation
 
-
-struct AudioPlayerView: View, AudioPickerViewDelegate {
-	let player: AVPlayer = AVPlayer()
-	@State var audioSamples: [Float] = []
-	@State var isPlaying = false
-	
-	@State var fileName: String = String()
-	@State var timeObservation: Any?
-	
+struct AudioPlayerView: View {
+	@ObservedObject var audioPlayer = AudioPlayer.shared
 	@State var showingPicker = false
-	@State var duration: TimeInterval = 1
-	@State var currentTime: TimeInterval = 0
 	
-	func loadAudio(url: URL){
-		fileName=url.lastPathComponent
-		player.replaceCurrentItem(with: AVPlayerItem(url: url))
-		duration=CMTimeGetSeconds((player.currentItem?.asset.duration)!)
-		DispatchQueue.global(qos: .background).async {
-			self.audioSamples=readAudio(audioURL: url, forChannel: 0)
+	private func onPlayButtonClicked(){
+		if self.audioPlayer.player.currentItem == nil{
+			print("no audio")
+			return
 		}
-	}
-	
-	func playAudio(){
-		print("play")
-		self.player.play()
-		self.timeObservation = self.player.addPeriodicTimeObserver(
-			forInterval: CMTime(seconds: 0.01, preferredTimescale: 600),
-			queue: nil) {
-				time in
-				guard self.isPlaying else { return }
-				self.currentTime = time.seconds / self.duration
-				print("\(self.currentTime)")
+		if self.audioPlayer.isPlaying {
+			self.audioPlayer.player.pause()
 		}
+		else {
+			self.audioPlayer.player.play()
+		}
+		self.audioPlayer.isPlaying.toggle()
 	}
 	
 	var body: some View {
 		GeometryReader { geometry in
 			VStack(spacing: 0){
 				HStack{
-					Text("\(self.fileName)")
+					Text("\(self.audioPlayer.fileName)")
 					Spacer()
 					Button(action: {
 						self.showingPicker.toggle()
@@ -58,41 +41,20 @@ struct AudioPlayerView: View, AudioPickerViewDelegate {
 				}.padding().frame(height: geometry.size.height*0.1)
 				Rectangle().frame(height: geometry.size.height*0.5)
 				VStack{
-					ProgressbarView(player: self.player,
-									audioSamples: self.audioSamples,
-									viewWidth: geometry.size.width,
-									viewHeight: geometry.size.height*0.1,
-									currentTime: self.$currentTime,
-									isPlaying: self.$isPlaying)
+					ProgressbarView(viewWidth: geometry.size.width,
+									viewHeight: geometry.size.height*0.1)
 					Spacer()
-					Button(action: {
-						if self.player.currentItem == nil{
-							print("no audio")
-							return
-						}
-						if self.isPlaying {
-							print("pause")
-							self.player.pause()
-						}
-						else {
-							self.playAudio()
-						}
-						self.isPlaying.toggle()
-					}) {
-						Image(systemName: !self.isPlaying ? "play.circle" : "pause.circle").font(.system(size: 100))
+					Button(action: self.onPlayButtonClicked) {
+						Image(systemName: !self.audioPlayer.isPlaying
+							? "play.circle" : "pause.circle")
+							.font(.system(size: 100))
 					}
 					Spacer()
 				}.frame(height: geometry.size.height*0.4)
 			}
 		}
 		.sheet(isPresented: self.$showingPicker) {
-			AudioPickerView(delegate: self)
+			AudioPickerView()
 		}
-	}
-}
-
-struct AudioPlayerView_Previews: PreviewProvider {
-	static var previews: some View {
-		AudioPlayerView()
 	}
 }

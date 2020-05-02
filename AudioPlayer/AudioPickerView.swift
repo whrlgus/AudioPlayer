@@ -6,7 +6,6 @@
 //  Copyright © 2020 none. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 import MobileCoreServices
 
@@ -15,9 +14,6 @@ protocol AudioPickerViewDelegate {
 }
 
 struct AudioPickerView: UIViewControllerRepresentable {
-	var delegate: AudioPlayerView
-	
-	
 	func makeCoordinator() -> Coordinator {
 		Coordinator(self)
 	}
@@ -40,7 +36,7 @@ struct AudioPickerView: UIViewControllerRepresentable {
 		
 		func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
 			guard let url = urls.first else { return }
-			parent.delegate.loadAudio(url: url)
+			AudioPlayer.shared.loadAudio(url: url)
 		}
 	}
 }
