@@ -66,18 +66,9 @@
 		4CF65C05245983A100E5EE8D /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				4CF65C06245983A100E5EE8D /* AppDelegate.swift */,
-				4CF65C08245983A100E5EE8D /* SceneDelegate.swift */,
-				4CF65C0F245983A400E5EE8D /* Assets.xcassets */,
-				4CF65C14245983A400E5EE8D /* LaunchScreen.storyboard */,
-				4CF65C17245983A400E5EE8D /* Info.plist */,
-				4CF65C0A245983A200E5EE8D /* AudioPlayer.xcdatamodeld */,
-				4CF65C2B245D974900E5EE8D /* AudioPlayer.swift */,
-				4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */,
-				4CF65C1F2459897E00E5EE8D /* AudioPickerView.swift */,
-				4CF65C232459B29200E5EE8D /* ProgressbarView.swift */,
-				4CF65C212459B22000E5EE8D /* WaveformView.swift */,
-				4CF65C11245983A400E5EE8D /* Preview Content */,
+				4CF65C2E245DBF4800E5EE8D /* Objects */,
+				4CF65C2D245DBECF00E5EE8D /* Views */,
+				4CF65C2F245DBFA100E5EE8D /* Others */,
 			);
 			path = AudioPlayer;
 			sourceTree = "<group>";
@@ -88,6 +79,39 @@
 				4CF65C12245983A400E5EE8D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4CF65C2D245DBECF00E5EE8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CF65C1D2459873400E5EE8D /* AudioPlayerView.swift */,
+				4CF65C1F2459897E00E5EE8D /* AudioPickerView.swift */,
+				4CF65C232459B29200E5EE8D /* ProgressbarView.swift */,
+				4CF65C212459B22000E5EE8D /* WaveformView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4CF65C2E245DBF4800E5EE8D /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4CF65C2B245D974900E5EE8D /* AudioPlayer.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		4CF65C2F245DBFA100E5EE8D /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				4CF65C06245983A100E5EE8D /* AppDelegate.swift */,
+				4CF65C08245983A100E5EE8D /* SceneDelegate.swift */,
+				4CF65C0F245983A400E5EE8D /* Assets.xcassets */,
+				4CF65C14245983A400E5EE8D /* LaunchScreen.storyboard */,
+				4CF65C17245983A400E5EE8D /* Info.plist */,
+				4CF65C0A245983A200E5EE8D /* AudioPlayer.xcdatamodeld */,
+				4CF65C11245983A400E5EE8D /* Preview Content */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,10 +329,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AudioPlayer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AudioPlayer/Others/Preview Content\"";
 				DEVELOPMENT_TEAM = 2QLFNHWT2N;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = AudioPlayer/Info.plist;
+				INFOPLIST_FILE = AudioPlayer/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,10 +349,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AudioPlayer/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AudioPlayer/Others/Preview Content\"";
 				DEVELOPMENT_TEAM = 2QLFNHWT2N;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = AudioPlayer/Info.plist;
+				INFOPLIST_FILE = AudioPlayer/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
