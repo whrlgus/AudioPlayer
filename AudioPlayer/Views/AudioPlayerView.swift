@@ -13,8 +13,6 @@ struct AudioPlayerView: View {
 	@ObservedObject var audioPlayer = AudioPlayer.shared
 	@State var showingPicker = false
 	
-	
-	
 	var body: some View {
 		GeometryReader { geometry in
 			VStack(spacing: 0){

@@ -37,7 +37,6 @@ struct ProgressbarView: View {
 	}
 	
     var body: some View {
-		
 			ZStack{
 				WaveformView(audioSamples: audioPlayer.audioSamples,
 							 viewWidth: viewWidth,

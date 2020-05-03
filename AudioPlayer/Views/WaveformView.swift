@@ -12,32 +12,34 @@ struct WaveformView: View {
 	let audioSamples: [Float]
 	let viewHeight: CGFloat
 	let barWidth: CGFloat?
+	var ratio: Int = 1
 	
 	init(audioSamples: [Float], viewWidth: CGFloat, viewHeight: CGFloat) {
 		self.audioSamples = audioSamples
 		self.viewHeight = viewHeight
-		self.barWidth = viewWidth/CGFloat(audioSamples.count)
+		self.ratio = audioSamples.count / 3000 + 1
+		self.barWidth = CGFloat(self.ratio)*viewWidth/CGFloat(audioSamples.count)
 	}
 	
 	var body: some View {
 		Color.gray
 			.overlay(
 				HStack(spacing: 0) {
-					ForEach(self.audioSamples, id: \.self) { value in
+					ForEach(0..<self.audioSamples.count/self.ratio, id: \.self){ value in
 						Rectangle()
 							.frame(
 								width: self.barWidth,
-								height: CGFloat(value)*self.viewHeight
+								height: CGFloat(self.audioSamples[value*self.ratio])*self.viewHeight
 						)
+						
 					}
+//					ForEach(self.audioSamples, id: \.self) { value in
+//						Rectangle()
+//							.frame(
+//								width: self.barWidth,
+//								height: CGFloat(value)*self.viewHeight
+//						)
+//					}
 			})
-	}
-}
-
-struct WaveformView_Previews: PreviewProvider {
-	static var previews: some View {
-		WaveformView(audioSamples: [0.1,0.3,0.4,0.2,0.5,1,0.5,0.9],
-					 viewWidth: 200,
-					 viewHeight: 200)
 	}
 }
