@@ -16,6 +16,7 @@ class AudioPlayer: ObservableObject{
 	var duration: TimeInterval = 1
 	var isSeeking = false
 	var timeObservation: Any?
+	var mark: [Double] = [0]
 	
 	@Published var isPlaying = false
 	@Published var audioSamples: [Float] = []
@@ -53,10 +54,26 @@ class AudioPlayer: ObservableObject{
 		}
 		
 		audioSamples = Array(repeating: 0, count: lenOfSamples)
+		mark = [0]
 		try! file.read(into: buffer)
 		for i in 0..<lenOfSamples {
 			let val = abs(buffer.floatChannelData![0][i * lenOfFrame])
 			audioSamples[i]=(val > 1e-8 ? (20 * log10(val) + 80)/80 : 0)
+//			print("\(audioSamples[i])")
+			
+			if audioSamples[i] > 0.1 {
+				var cnt = 20
+				var j = i - 1
+				
+				while j>=0 && audioSamples[j] < 0.1 && cnt > 0 {
+					j-=1
+					cnt-=1
+				}
+				if j == 0 || cnt == 0 {
+					mark.append(Double(i)/Double(lenOfSamples))
+					print("\(mark[mark.count-1])")
+				}
+			}
 		}
 		
 	}

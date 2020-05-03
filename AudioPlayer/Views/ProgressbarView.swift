@@ -22,7 +22,7 @@ struct ProgressbarView: View {
 	@State var duration: TimeInterval = 1
 	@State var dragLocation = CGPoint.zero
 
-	func foo(value: DragGesture.Value, min:CGFloat, max:CGFloat){
+	func seek(value: DragGesture.Value, min:CGFloat, max:CGFloat){
 		print("\(value.location.x)")
 		audioPlayer.currentTimePerDuration = value.location.x
 
@@ -47,9 +47,9 @@ struct ProgressbarView: View {
 					DragGesture(minimumDistance: 0)
 						.onChanged({ value in
 							self.audioPlayer.isSeeking = true
-						self.foo(value: value, min: 0, max: self.viewWidth)
+						self.seek(value: value, min: 0, max: self.viewWidth)
 					}).onEnded({ value in
-						self.foo(value: value, min: 0, max: self.viewWidth)
+						self.seek(value: value, min: 0, max: self.viewWidth)
 						self.audioPlayer.seek()
 						self.audioPlayer.isSeeking = false
 						})

@@ -13,19 +13,7 @@ struct AudioPlayerView: View {
 	@ObservedObject var audioPlayer = AudioPlayer.shared
 	@State var showingPicker = false
 	
-	private func onPlayButtonClicked(){
-		if self.audioPlayer.player.currentItem == nil{
-			print("no audio")
-			return
-		}
-		if self.audioPlayer.isPlaying {
-			self.audioPlayer.player.pause()
-		}
-		else {
-			self.audioPlayer.player.play()
-		}
-		self.audioPlayer.isPlaying.toggle()
-	}
+	
 	
 	var body: some View {
 		GeometryReader { geometry in
@@ -44,11 +32,7 @@ struct AudioPlayerView: View {
 					ProgressbarView(viewWidth: geometry.size.width,
 									viewHeight: geometry.size.height*0.1)
 					Spacer()
-					Button(action: self.onPlayButtonClicked) {
-						Image(systemName: !self.audioPlayer.isPlaying
-							? "play.circle" : "pause.circle")
-							.font(.system(size: 100))
-					}
+					ControlPanelView()
 					Spacer()
 				}.frame(height: geometry.size.height*0.4)
 			}
