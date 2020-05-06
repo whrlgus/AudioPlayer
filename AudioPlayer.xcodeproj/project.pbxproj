@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C7E08272461C0B700A9B225 /* RepeatControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E08262461C0B700A9B225 /* RepeatControlView.swift */; };
 		4CF65C07245983A100E5EE8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C06245983A100E5EE8D /* AppDelegate.swift */; };
 		4CF65C09245983A100E5EE8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C08245983A100E5EE8D /* SceneDelegate.swift */; };
 		4CF65C0C245983A200E5EE8D /* AudioPlayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CF65C0A245983A200E5EE8D /* AudioPlayer.xcdatamodeld */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C7E08262461C0B700A9B225 /* RepeatControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatControlView.swift; sourceTree = "<group>"; };
 		4CF65C03245983A100E5EE8D /* AudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF65C06245983A100E5EE8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF65C08245983A100E5EE8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				4CF65C232459B29200E5EE8D /* ProgressbarView.swift */,
 				4CF65C212459B22000E5EE8D /* WaveformView.swift */,
 				4CF65C36245F0AFC00E5EE8D /* ControlPanelView.swift */,
+				4C7E08262461C0B700A9B225 /* RepeatControlView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				4CF65C2C245D974900E5EE8D /* AudioPlayer.swift in Sources */,
 				4CF65C0C245983A200E5EE8D /* AudioPlayer.xcdatamodeld in Sources */,
 				4CF65C242459B29200E5EE8D /* ProgressbarView.swift in Sources */,
+				4C7E08272461C0B700A9B225 /* RepeatControlView.swift in Sources */,
 				4CF65C09245983A100E5EE8D /* SceneDelegate.swift in Sources */,
 				4CF65C37245F0AFC00E5EE8D /* ControlPanelView.swift in Sources */,
 				4CF65C1E2459873400E5EE8D /* AudioPlayerView.swift in Sources */,

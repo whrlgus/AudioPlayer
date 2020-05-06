@@ -25,14 +25,14 @@ struct AudioPlayerView: View {
 						Image(systemName: "music.note.list").font(.system(size: 30))
 					}
 				}.padding().frame(height: geometry.size.height*0.1)
-				Rectangle().frame(height: geometry.size.height*0.5)
-				VStack{
+				Rectangle().frame(height: geometry.size.height*0.4)
+				VStack(spacing:0){
 					ProgressbarView(viewWidth: geometry.size.width,
 									viewHeight: geometry.size.height*0.1)
-					Spacer()
+//					Spacer()
 					ControlPanelView()
-					Spacer()
-				}.frame(height: geometry.size.height*0.4)
+//					Spacer()
+				}.frame(height: geometry.size.height*0.5)
 			}
 		}
 		.sheet(isPresented: self.$showingPicker) {

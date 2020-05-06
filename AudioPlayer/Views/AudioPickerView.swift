@@ -9,13 +9,9 @@
 import SwiftUI
 import MobileCoreServices
 
-protocol AudioPickerViewDelegate {
-	func loadAudio(url: URL)
-}
-
 struct AudioPickerView: UIViewControllerRepresentable {
 	func makeCoordinator() -> Coordinator {
-		Coordinator(self)
+		Coordinator()
 	}
 	
 	func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: UIViewControllerRepresentableContext<AudioPickerView>) {
@@ -27,13 +23,7 @@ struct AudioPickerView: UIViewControllerRepresentable {
 		return picker
 	}
 	
-	class Coordinator: NSObject, UINavigationControllerDelegate, UIDocumentPickerDelegate {
-		var parent: AudioPickerView
-		
-		init(_ parent: AudioPickerView) {
-			self.parent = parent
-		}
-		
+	class Coordinator: NSObject, UIDocumentPickerDelegate {
 		func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
 			guard let url = urls.first else { return }
 			AudioPlayer.shared.loadAudio(url: url)

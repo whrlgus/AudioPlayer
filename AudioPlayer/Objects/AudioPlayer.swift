@@ -23,8 +23,23 @@ class AudioPlayer: ObservableObject{
 	@Published var fileName: String = String()
 	@Published var currentTimePerDuration: CGFloat = 0
 	
+	@Published var repeatStartPoint: CGFloat = -1
+	@Published var repeatEndPoint: CGFloat = -1
+	@Published var isRepeatPlaying: Bool = false
+	
+	
+	func initVariables(){
+		player.pause()
+		currentTimePerDuration = 0
+		isPlaying = false
+		isRepeatPlaying = false
+		if let observer = timeObservation {
+			player.removeTimeObserver(observer)
+		}
+	}
 	
 	func loadAudio(url: URL){
+		initVariables()
 		player.replaceCurrentItem(with: AVPlayerItem(url: url))
 		duration=CMTimeGetSeconds((player.currentItem?.asset.duration)!)
 		fileName=url.lastPathComponent
@@ -39,6 +54,12 @@ class AudioPlayer: ObservableObject{
 				time in
 				guard self.isPlaying && !self.isSeeking else { return }
 				self.currentTimePerDuration = CGFloat(time.seconds / self.duration)
+				if self.isRepeatPlaying {
+					if self.currentTimePerDuration < self.repeatStartPoint - 0.01 || self.currentTimePerDuration > self.repeatEndPoint{
+						self.currentTimePerDuration = self.repeatStartPoint
+						self.seek()
+					}
+				}
 				print("\(self.currentTimePerDuration)")
 		}
 	}
@@ -75,6 +96,7 @@ class AudioPlayer: ObservableObject{
 				}
 			}
 		}
+		mark.append(1)
 		
 	}
 	
@@ -83,6 +105,24 @@ class AudioPlayer: ObservableObject{
 		player.seek(to: time)
 	}
 	
+	func seek(to time: CMTime){
+		player.seek(to: time)
+	}
 	
 	
+	func getPrevPos(from :CGFloat) -> CGFloat{
+		var i = mark.count - 1
+		while i>0 && mark[i] >= Double(from) {
+			i-=1
+		}
+		return CGFloat(mark[i])
+	}
+
+	func getNextPos(from :CGFloat) -> CGFloat{
+		var i = 0
+		while i < mark.count - 1 && mark[i] <= Double(from) {
+			i+=1
+		}
+		return CGFloat(mark[i])
+	}
 }
