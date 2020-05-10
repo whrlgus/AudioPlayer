@@ -2,7 +2,7 @@
 
 학습 용도의 오디오 플레이어 iOS 앱
 
-<kbd><img src="images/screenshot1.png"  width="200"></kbd>
+<kbd><img align="center" src="images/screenshot1.png" width="200"></kbd>
 
 
 ### 개발 환경 및 언어
