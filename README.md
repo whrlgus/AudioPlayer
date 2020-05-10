@@ -2,7 +2,7 @@
 
 학습 용도의 오디오 플레이어 iOS 앱
 
-![스크린샷](/images/screeshot1.png)
+![스크린샷](AudioPlayer/images/screenshot1.png)
 
 ### 개발 환경 및 언어
 
